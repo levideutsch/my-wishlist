@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# My Phase-5 Project - My Wishlist
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Intro:
+My application offers users the ultimate browsing experience by allowing them to explore the web and effortlessly save their most coveted products in one convenient place. Say goodbye to endless tabs and scattered wishlists; with our project, you can curate your dream list with ease. Whether you're hunting for fashion finds, tech gadgets, or home decor treasures, my app streamlines the process, ensuring you never lose track of those must-have items again. Happy browsing, and start building your dream wishlist today!
 
-## Available Scripts
+## How it works:
+Instantly, you will be brought to the Login page, where you can either login if you already have an account, or you can click the Signup button, which will bring you to the Signup page where you can create a new account.
 
-In the project directory, you can run:
+|| Login and signup photos ||
 
-### `npm start`
+Once logged in you will be brought to the home page where you will be able to create your own profile and  wishlist.
+|| photo of home page ||
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Click on the profile icon and you will be brought to a form which will allow you to create your own profile. You'll have access to your devices files to upload your profile photo.
+|| photo of profile form ||
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Once your profile is all set up you'll be able to to add a product to your wishlist by simply clicking on "Add Product" which will bring you to the add product form.
+|| photo of product form ||
 
-### `npm test`
+Once a product is submitted you'll see it being displayed on your home page. Click on an individual product, you'll be brought to that individual products page where you'll be able to delete, and edit that product.
+|| photo of home page with products and individual product page ||
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users can also browse products by category by clicking on the "By Category" button. 
+|| Photo of By Category page ||
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

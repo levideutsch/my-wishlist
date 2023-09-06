@@ -1,40 +1,27 @@
 import React, { useState, useEffect } from "react";
 import api from '../lib/api'
+import {  useNavigate } from "react-router-dom";
 
 const UserContext = React.createContext();
 
 function UserProvider({ children }) {
 
   const [user, setUser] = useState({})
-  const [products, setProducts] = useState(null)
+  const [products, setProducts] = useState([])
   const [categories, setCategories] = useState(null)
   const [loggedIn, setLoggedIn] = useState(false)
   const [latestPost, setLatestPost] = useState({})
   const [latestProfile, setLatestProfile] = useState({})
   const [error, setError] = useState(null)
 
-  console.log(user)
 
-  // useEffect(() => {
-  //   api("/me")
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     setUser(data)
-  //     data.error ? setLoggedIn(false) :setLoggedIn(true)
-  //   })
-  // }, [])
-
-  // const login = (user) => {
-  //   setUser(user)
-  //   setLoggedIn(true)
-  // }
 
   async function loadUser() {
     const response = await api("/me")
     const body = await response.json()
-    // console.log(body)
 
     setUser(body || {})
+    setProducts(body?.products)
     setLoggedIn(body !== null)
   }  
 
@@ -85,7 +72,6 @@ function UserProvider({ children }) {
         })
       } else {
         response.json().then(data => {
-          console.log(data)
           setCategories(data)
         })
       }
@@ -112,8 +98,6 @@ function UserProvider({ children }) {
   //   })
   // }
  
-
-
   function deleteProfile(id) {
     api(`/profiles/${id}`, {
       method: 'DELETE'
@@ -123,9 +107,59 @@ function UserProvider({ children }) {
         response.json().then((err) => setError(err.errors))
       } else {
         console.log("deleted")
+
       }
     })
   }
+
+  const updateUserProfile = (newProfile) => {
+    setUser((prevUser) => ({
+      ...prevUser,
+      profile: newProfile,
+    }));
+  };
+
+  const addUserProduct = (newProduct) => {
+    setUser((prevUser) => ({
+      ...prevUser,
+      products: [...prevUser?.products, newProduct],
+    }));
+    setProducts((products) => [...products, newProduct])
+  };
+
+  const editUserProduct = (editedProduct) => {
+    const updateProducts = (product) => product.id === editedProduct.id ? editedProduct : product
+
+    setUser((prevUser) => ({
+      ...prevUser,
+      products: prevUser.products.map(updateProducts),
+    }));
+    setProducts((products) => products.map(updateProducts))
+  };
+
+  async function deleteProduct(id) {
+    const filterProduct = (product) => product.id !== id
+
+    setUser(({products, ...prevUser}) => ({...prevUser, products: products.filter(filterProduct)}))
+    setProducts(products => products.filter(filterProduct))
+
+    const response = await api(`/products/${id}`, {
+      method: 'DELETE'
+    })
+
+    if(!response.ok) {
+      console.error('Unable to delete product', await response.json())
+    } else {
+
+    }
+      
+  }
+
+  // function editProduct(updatedProduct) {
+  //   api(`/products/${updatedProduct.id}`, {
+  //     method: 'PATCH',
+  //   })
+  // }
 
 
     return (
@@ -145,8 +179,11 @@ function UserProvider({ children }) {
           deleteProfile,
           products, 
           setProducts,
-          categories
-          // addProduct
+          categories,
+          updateUserProfile,
+          deleteProduct,
+          addUserProduct,
+          editUserProduct
           }}
         >
           { children }

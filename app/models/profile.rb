@@ -18,7 +18,7 @@ class Profile < ApplicationRecord
     private
 
     def profile_photo_presence
-        unless profile_photo.attached?
+        unless profile_photo.attached?  #|| product_photo == "undefined"
           errors.add(:profile_photo, "must be attached")
         end
       end

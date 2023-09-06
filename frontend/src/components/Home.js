@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { UserContext } from "../context/User";
-import { NavLink, useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AllProducts from "./AllProducts";
-import ProductForm from "./ProductForm";
+
 
 function Home() {
-    const  {user, loggedIn, products } = useContext(UserContext)
+    const  {user, products } = useContext(UserContext)
 
-    if (products == null) {
+    if (products === []) {
         return (
             <div>
                 <Link to="product-form">
@@ -18,7 +18,8 @@ function Home() {
     } else {
         return (
             <div>
-                <h1>{user.username}'s Home Page</h1>
+                {/* <h1>{user.username}'s Home Page</h1> */}
+                <h3>{user.username?.charAt(0).toUpperCase() + user.username?.slice(1)}'s Home Page</h3>
                 <AllProducts />
             </div>
         )

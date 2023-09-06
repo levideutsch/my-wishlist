@@ -1,15 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/User";
 import { NavLink, useNavigate, Link } from "react-router-dom";
 
 
 function Profile() {
-    const { user, deleteProfile } = useContext(UserContext)
-// console.log(user.profile.id)
+    const { user, deleteProfile, updateUserProfile } = useContext(UserContext)
+    const navigate = useNavigate()
+    const [profileDeleted, setProfileDeleted] = useState(false);
 
-    const handleDelete = () => {
-        deleteProfile(user.profile)
-    }
+
+   
+    const handleDelete = async () => {
+        await deleteProfile(user.profile);
+        updateUserProfile(null); // Reset the user's profile
+        setProfileDeleted(true);
+      };
+
+      useEffect(() => {
+        if (profileDeleted) {
+          // Reset the profileDeleted state to false
+          setProfileDeleted(false);
+      
+          // Reset the user's context profile
+          updateUserProfile(null); // Reset the user's profile
+        }
+      }, [profileDeleted]);
 
 if (!user.profile) {
     return (

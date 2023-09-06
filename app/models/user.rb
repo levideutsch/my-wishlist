@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
     has_one :profile
-    has_many :products
+    has_many :products, dependent: :destroy
     has_many :categories, through: :products
     has_secure_password
 

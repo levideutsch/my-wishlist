@@ -6,8 +6,9 @@ import api from '../lib/api'
 
 
 function ProfileForm() {
-    const { latestProfile, setLatestProfile, user} = useContext(UserContext)
+    const { user, updateUserProfile } = useContext(UserContext)
     const [profileFormErrors, setProfileFormErrors] = useState(null)
+    const [profileCreated, setProfileCreated] = useState(false)
     const navigate = useNavigate()
 
     function handleSubmit(event) {
@@ -21,27 +22,40 @@ function ProfileForm() {
         data.append("profile[full_name]", event.target.full_name.value)
         data.append("profile[age]", event.target.age.value)
         data.append("profile[sex]", event.target.sex.value)
+
         data.append("profile[profile_photo]", event.target.image.files[0])
         console.log(FormData)
 
         submitToAPI(data)
     }
 
+
     function submitToAPI(data) {
         api("/profiles", {
             method: 'POST',
-            body: data
+            body: data,
         })
         .then(response => {
             if (!response.ok) {
-                response.json().then((err) => setProfileFormErrors(err.error))
+                response.json().then((err) => setProfileFormErrors(err.error));
             } else {
-                navigate("/profile")
+                response.json().then((createdProfile) => {
+        
+                    updateUserProfile(createdProfile)
+                });
             }
-        })
+        });
     }
 
-    // console.log(profileFormErrors)
+    // useEffect(() => {
+    //     if (profileCreated) {
+    //       // Reset the profileDeleted state to false
+    //       setProfileCreated(false);
+      
+    //       // Reset the user's context profile
+    //       updateUserProfile(null); // Reset the user's profile
+    //     }
+    //   }, [profileCreated]);
 
 
     if (user.profile) {
@@ -67,7 +81,8 @@ function ProfileForm() {
     
                     <button type="submit">Create Profile</button>
                 </form>
-                <p>{profileFormErrors}</p>
+                {/* <p>{profileFormErrors}</p> */}
+                {profileFormErrors?.map(e => <li key={e.id}>{e}</li>)}
     
             </div>
         )

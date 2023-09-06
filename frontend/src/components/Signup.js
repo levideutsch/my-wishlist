@@ -12,7 +12,7 @@ function Signup() {
     const { signup } = useContext(UserContext)
     const navigate = useNavigate()
 
-    console.log(errorsList)
+    // console.log(errorsList)
 
     const handleSubmit = (event) => {
         event.preventDefault()

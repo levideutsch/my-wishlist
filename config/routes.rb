@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  resources :profiles
   resources :categories
   resources :products
+  resources :posts
+  resources :users
  
+  get "/filter-products/:id", to: "products#products_by_category"
   get "/current-user", to: "users#current_logged_user"
   get "/latest-profile", to: "profiles#latest_profile"
 
@@ -15,9 +19,8 @@ Rails.application.routes.draw do
   get "/latest", to: "posts#latest"
   get "/all-users", to: "users#all_users"
 
-  resources :profiles
-  resources :posts
-  resources :users
+ 
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
