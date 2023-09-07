@@ -43,11 +43,11 @@ code {
   text-align: center;
 } */
 
-/* .product-image {
-  width: 200px; 
-  height: 200px;
+ .single-product-image {
+  width: 300px; 
+  height: 300px;
   object-fit: cover; 
-} */
+} 
 
 .product-article {
   width: 200px; /* Set your desired width */

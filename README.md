@@ -5,23 +5,24 @@ My application offers users the ultimate browsing experience by allowing them to
 
 ## How it works:
 Instantly, you will be brought to the Login page, where you can either login if you already have an account, or you can click the Signup button, which will bring you to the Signup page where you can create a new account.
-
-|| Login and signup photos ||
 ![image](Sign-in-page.png)
+![image](Sign-up-page.png)
 
 Once logged in you will be brought to the home page where you will be able to create your own profile and  wishlist.
-|| photo of home page ||
+![image](Home-page.png)
 
 Click on the profile icon and you will be brought to a form which will allow you to create your own profile. You'll have access to your devices files to upload your profile photo.
-|| photo of profile form ||
+![image](Profile-form-page.png)
 
 Once your profile is all set up you'll be able to to add a product to your wishlist by simply clicking on "Add Product" which will bring you to the add product form.
-|| photo of product form ||
+![image](Product-form-page.png)
 
-Once a product is submitted you'll see it being displayed on your home page. Click on an individual product, you'll be brought to that individual products page where you'll be able to delete, and edit that product.
-|| photo of home page with products and individual product page ||
+Once a product is submitted you'll see it being displayed on your home page. Click on an individual product, you'll be brought to that individual products page where you'll be able to delete, and edit that product. You can also click on that single product to be brought to that products URL where you can go ahead and purchase it.
+![image](Home-page-with-product.png)
+![image](Single-product-page.png)
+
 
 Users can also browse products by category by clicking on the "By Category" button. 
-|| Photo of By Category page ||
+![image](Products-by-category.png)
 
 

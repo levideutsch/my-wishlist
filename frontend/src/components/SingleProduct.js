@@ -45,7 +45,7 @@ function SingleProduct() {
             <img 
             src={mySingleProduct.product_photo_url} 
             alt="Product Photo" 
-            className="product-image"
+            className="single-product-image"
             />
             </a>
         </article>
