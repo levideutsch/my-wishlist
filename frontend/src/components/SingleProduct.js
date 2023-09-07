@@ -15,7 +15,7 @@ function SingleProduct() {
      
 
     const mySingleProduct = products.find(p => p.id === parseInt(id));
-    // console.log(mySingleProduct)
+    
 
     const handleDeleteClick = () => {
         deleteProduct(mySingleProduct.id)

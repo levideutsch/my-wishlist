@@ -9,10 +9,9 @@ function ProductForm() {
     const [selectCategory, setSelectCategory] = useState("")
     const navigate = useNavigate()
 
-    console.log(productFormErrors)
+    
       
-   
-
+  
     function handleSubmit(event) {
         event.preventDefault()
 
@@ -83,12 +82,7 @@ function ProductForm() {
           )}
         </div>
       )}
-      
-     
-
-
-
-        </div>
+       </div>
     )
 }
 export default ProductForm

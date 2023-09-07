@@ -12,7 +12,7 @@ function Profile() {
    
     const handleDelete = async () => {
         await deleteProfile(user.profile);
-        updateUserProfile(null); // Reset the user's profile
+        updateUserProfile(null); 
         setProfileDeleted(true);
       };
 

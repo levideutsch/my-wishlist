@@ -56,7 +56,7 @@ const handleColorChange = (e) => {
           const body = await response.json()
     
           if (response.ok) {
-            // Handle success, e.g., show a success message or redirect
+           
             console.log("Product updated successfully!");
             editUserProduct(body)
             navigate('/')
